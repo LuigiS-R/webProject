@@ -58,7 +58,7 @@
     overflow: hidden;
 
 }
-#grid-item{
+.grid-item{
     border-radius: 25%;
     height: 100px;
     margin: 5px;
