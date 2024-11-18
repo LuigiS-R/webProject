@@ -53,4 +53,5 @@ function onLoad(){
 function getForecast(){
     console.log("getForecast");
     document.getElementById("forecastContainer").style.height = "100px";
+    
 }
