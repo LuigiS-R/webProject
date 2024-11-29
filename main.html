@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./main.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body onload="onLoad()">
         <div id="navbarContainer">
@@ -22,9 +23,9 @@
             </div>
        </div>
         <div id="dashboard">
-            <section class="container">
-                
-              </section>
+            <div id="textContainer">
+                <input id="searchBar" type="text" placeholder="Search for a city">
+            </div>
 
             <div id="grid-container">
                 <div id="temperature" class="grid-item">
@@ -49,7 +50,7 @@
                                     <p>Humidity:</p>
                                     <span id="dynamicHumidity" style='font-size:20px;'></span>
                                     <br>
-                                    <input id="humidityTrendButton" type="button" value="CHECK TREND" onclick="getForecast()">
+                                    <input id="humidityTrendButton" type="button" value="CHECK TREND" onclick="getHumidityForecast()">
                                 </div>
                                 <div id="chartAnimation">
                                     <img src="./images/barChart.gif" alt="" width="80px" height="80px">
@@ -63,9 +64,9 @@
                         </div>
                       </div>
                 </div>
-                <!--<div id="forecastContainer">
-                    <div style="height: 20px; width: 20px; background-color: yellow; visibility: hidden;"></div>
-                </div>-->
+                <div id="forecastContainer" style="width: 290px; height: 0px; border: 0.5px solid gray; text-align: right;">
+                    <canvas id="myLineChart" style="width: 100%; height: 100%;"></canvas>
+                </div>
                 <!--<div class="grid-item"></div>
                 <div class="grid-item"></div>
                 <div class="grid-item" style="grid-column: span 2; border-radius: 5%;"></div>
@@ -75,36 +76,44 @@
                 <div class="grid-item"></div>-->
             </div>
             <div id="airPollutionDataTitle">Air Pollution Data</div>
+            <!--CHECKPOINT!!!!!!!!-->
             <div id="grid-container2">
-                <div class="grid-item" id="pm25" style="border: 0.25px solid green;">
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">PM 2.5 <br>0%</div>
+                    </div>
+                </div>
+                <!--<div class="grid-item" id="pm25" style="border: 0.5px solid green;">
                     <div id="pm25TextContent">
                         <p style="margin-bottom: 5px; font-size: 18px;">PM 2.5:</p>
                         <span id="dynamicPm25" style='font-size:15px;'></span>
                     </div>
-                </div>
-                <div class="grid-item" id="pm10">
-                    <div id="pm10TextContent">
-                        <p style="margin-bottom: 5px; font-size: 18px;">PM 10:</p>
-                        <span id="dynamicPm10" style='font-size:15px;'></span>
+                </div>-->
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">PM 10 <br>0%</div>
                     </div>
                 </div>
-                <div class="grid-item" id="nh3">
-                    <div id="nh3TextContent">
-                        <p style="margin-bottom: 5px; font-size: 18px;">NH3:</p>
-                        <span id="dynamicNh3" style='font-size:15px;'></span>
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">NH3 <br>0%</div>
                     </div>
                 </div>
-                <div class="grid-item" id="so2">
-                    <div id="so2TextContent">
-                        <p style="margin-bottom: 5px; font-size: 18px;">SO2:</p>
-                        <span id="dynamicSo2" style='font-size:15px;'></span>
+                <div class="grid-item-special">
+                    <div class="circular-bar">
+                      <div class="percent">SO2 <br>0%</div>
                     </div>
                 </div>
+                
             </div>
         </div>
         <div id="footer">
 
         </div>
+        <script>
+            // data for showing the line chart
+            
+        </script>
         <script src="./main.js"></script>
     </body>
 </html>

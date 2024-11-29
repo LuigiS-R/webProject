@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-
+    
 }
 #navbarContainer{
     height: 100%;
@@ -49,6 +49,16 @@ body{
     font-weight:normal;
     text-align: center;
 }
+#textContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+#searchBar{
+    width: 80%;
+    font-size: 15px;
+    padding: 3px;
+}
 #dashboard{
     height: 795px;
     width: 310px;
@@ -78,10 +88,9 @@ body{
     margin-top: 10px;
 }
 #forecastContainer{
-    height: 0px;
-    width: 100px;
+    height: 100px;
+    width: 380px;
     transition: height 0.2s;
-    background-color: red;
 }
 #pm25, #pm10, #nh3, #so2{
     grid-column: span 1;
@@ -100,21 +109,28 @@ body{
     margin-bottom: 10px;
 
 }
-.grid-item{
-    border-radius: 25px;
+.grid-item, .grid-item-special{
+    
     height: 100px;
     margin: 5px;
     margin-top: 10px;
     overflow: hidden;
+    padding-bottom: 10px;
+    
+}
+.grid-item{
+    border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 0px;
 }
 #airPollutionDataTitle{
     width: 100%;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 25px;
     padding-bottom: 0px;
     padding-left: 22px;
+    font-weight: bold;
 }
 #grid-container2{
     grid-template-columns: auto auto;
@@ -184,3 +200,58 @@ body{
 .slider-nav a:hover {
 	opacity: 1;
 }
+
+
+
+
+/*CHECKPOINT!!*/
+#wrapper{
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+    -6px -6px 10px -1px rgba(255,255,255,0.7);
+    /*width: 100px;*/
+    padding: 0px 0;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 7px;
+  }
+  
+  .circular-bar{
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(#8DE074 1.5deg, #faf9f9 0deg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+    -6px -6px 10px -1px rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+  }
+  
+  .circular-bar::before{
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: #F7F7F7;
+    border-radius: 50%;
+    box-shadow: inset 6px 6px 10px -1px rgba(0,0,0,0.15),
+    inset -6px -6px 10px -1px rgba(255,255,255,0.7);
+  }
+  
+  .percent{
+    z-index: 10;
+    font-size: 10px;
+  }
+  
+  label{
+    font-size: 10px;
+  }
+
+  .grid-item-special{
+    display: flex;
+    justify-content: center;
+  }

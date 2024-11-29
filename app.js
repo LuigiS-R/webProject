@@ -50,11 +50,39 @@ app.get('/pollution', (req, resp)=>{
             'so2': response.data.list[0].components.so2
             
         })
-        console.log(response)
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.log('error: ', error);
       });
+})
+
+app.get('/forecast', (req, resp)=>{
+  axios.get('http://api.weatherapi.com/v1/forecast.json', {
+    params:{
+      key: '3337f5c175c64ed3a28113820241411',
+      q: 'Pusan',
+      days:10
+    }
+  })
+  .then(response =>{
+    var dates = []
+    var temperatures = []
+    var humidity = []
+    console.log("This is what I am interested in" + response.data.forecast.forecastday.length);
+    for(let i = 0; i<3; i++){
+      dates.push(response.data.forecast.forecastday[i].date);
+      temperatures.push(response.data.forecast.forecastday[i].day.avgtemp_c);
+      humidity.push(response.data.forecast.forecastday[i].day.avghumidity);
+    }
+    resp.json({
+      'date' : dates,
+      'temperature': temperatures,
+      'humidity': humidity
+    })
+  })
+  .catch(error =>{
+    console.log("Error:", error)
+  })
 })
 
 app.listen(3000, ()=>{
