@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 body{
     
@@ -32,7 +33,7 @@ body{
     height: 150px;
     width: 321px;
     position: relative;
-    left: 90px;
+    /*left: 90px;*/
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 0px 0px 50px 50px;
@@ -59,12 +60,16 @@ body{
     font-size: 15px;
     padding: 3px;
 }
+#searchBar:focus{
+    outline: none;
+}
 #dashboard{
     height: 795px;
     width: 310px;
     position: relative;
-    left: 90px;
+    /*left: 90px;*/
     overflow: hidden;
+    overflow-x: hidden;
 }
 #locationName{
     font-size: 30px;
@@ -72,7 +77,8 @@ body{
     text-align: center;
     /*background-image: url(./images/brightSky.gif);*/
     padding-top: 15px;
-    padding-bottom: 30px;
+    /*padding-bottom: 30px;*/
+    margin-bottom: 5px;
 }
 #temperature{
     grid-column: span 3;
@@ -118,6 +124,9 @@ body{
     padding-bottom: 10px;
     
 }
+.grid-item-special{
+    height: 70px;
+}
 .grid-item{
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -133,12 +142,13 @@ body{
     font-weight: bold;
 }
 #grid-container2{
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto auto;
+    overflow: scroll;
     margin-top: 5px;
 }
 #footer{
     position: relative;
-    left: 100px;
+    /*left: 100px;*/
     height: 25px;
     width: 100%;
 }
@@ -219,27 +229,27 @@ body{
   }
   
   .circular-bar{
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background: conic-gradient(#8DE074 1.5deg, #faf9f9 0deg);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-    -6px -6px 10px -1px rgba(255,255,255,0.7);
+    /*box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+    -6px -6px 10px -1px rgba(255,255,255,0.7);*/
     margin-bottom: 40px;
   }
   
   .circular-bar::before{
     content: "";
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 50px;
+    height: 50px;
     background: #F7F7F7;
     border-radius: 50%;
-    box-shadow: inset 6px 6px 10px -1px rgba(0,0,0,0.15),
-    inset -6px -6px 10px -1px rgba(255,255,255,0.7);
+    /*box-shadow: inset 6px 6px 10px -1px rgba(0,0,0,0.15),
+    inset -6px -6px 10px -1px rgba(255,255,255,0.7);*/
   }
   
   .percent{
@@ -254,4 +264,15 @@ body{
   .grid-item-special{
     display: flex;
     justify-content: center;
+    width: 62px;
+  }
+
+  .rankingElements{
+    width: 250px; 
+    height: 45px; 
+    border: 1px solid black; 
+    border-radius: 15px; 
+    padding: 5px; 
+    padding: 10px; 
+    margin-top: 7px;
   }
