@@ -17,7 +17,7 @@ function onLoad(){
             coordinates.latitude = pos.coords.latitude
             coordinates.longitude = pos.coords.longitude
 
-            const requestUrl = `http://localhost:3000/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
+            const requestUrl = `https://webprojectproxyserverluigis-r.onrender.com/weather?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
             fetch(requestUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -27,7 +27,7 @@ function onLoad(){
                 })
 
                     function getTime(){
-                        const requestUrl3 = `http://localhost:3000/time?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
+                        const requestUrl3 = `https://webprojectproxyserverluigis-r.onrender.com/time?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
                                 fetch(requestUrl3)
                                     .then(response => response.json())
                                     .then(data=>{
@@ -36,7 +36,7 @@ function onLoad(){
                     }
             intervalID = setInterval(getTime, 1000)
 
-            const requestUrl2 = `http://localhost:3000/pollution?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
+            const requestUrl2 = `https://webprojectproxyserverluigis-r.onrender.com/pollution?lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
             fetch(requestUrl2)
                 .then(response => response.json())
                 .then(data => {
@@ -129,7 +129,7 @@ function onLoad(){
                 })
         }
 
-        const requestUrl4 = "http://localhost:3000/ranking";
+        const requestUrl4 = "https://webprojectproxyserverluigis-r.onrender.com/ranking";
         fetch(requestUrl4)
             .then(response => response.json())
             .then(data=>{
@@ -174,7 +174,7 @@ function graph(content){
         location = ((location.split(" "))[0])
     }
     
-    const requestUrl = `http://localhost:3000/forecast?location=${location}`;
+    const requestUrl = `https://webprojectproxyserverluigis-r.onrender.com/forecast?location=${location}`;
 
     fetch(requestUrl)
         .then(response => response.json())
@@ -286,7 +286,7 @@ textbox.addEventListener('keydown', function(event) {
         const inputValue = textbox.value;
 
         // Display the value or use it as needed
-        const requestUrl = `http://localhost:3000/geocoding?city=${inputValue}`;
+        const requestUrl = `https://webprojectproxyserverluigis-r.onrender.com/geocoding?city=${inputValue}`;
             fetch(requestUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -305,7 +305,7 @@ function reLoad(latitude, longitude, name, country){
     const time = currentDate.getHours();
 
 
-    const requestUrl = `http://localhost:3000/weather?lat=${latitude}&lon=${longitude}&name=${name}&country=${country}`;
+    const requestUrl = `https://webprojectproxyserverluigis-r.onrender.com/weather?lat=${latitude}&lon=${longitude}&name=${name}&country=${country}`;
 
     const urlParams = new URLSearchParams(new URL(requestUrl).search);
     const locationName = urlParams.get("name");
@@ -320,7 +320,7 @@ function reLoad(latitude, longitude, name, country){
         })
 
         function getTime(){
-            const requestUrl3 = `http://localhost:3000/time?lat=${latitude}&lon=${longitude}`;
+            const requestUrl3 = `https://webprojectproxyserverluigis-r.onrender.com/time?lat=${latitude}&lon=${longitude}`;
                     fetch(requestUrl3)
                         .then(response => response.json())
                         .then(data=>{
@@ -329,7 +329,7 @@ function reLoad(latitude, longitude, name, country){
         }
         intervalID = setInterval(getTime, 1000)
 
-    const requestUrl2 = `http://localhost:3000/pollution?lat=${latitude}&lon=${longitude}`;
+    const requestUrl2 = `https://webprojectproxyserverluigis-r.onrender.com/pollution?lat=${latitude}&lon=${longitude}`;
     fetch(requestUrl2)
         .then(response => response.json())
         .then(data => {
